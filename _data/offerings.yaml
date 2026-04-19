@@ -1,0 +1,59 @@
+tiers:
+  - name: Herb-Curious
+    price: 
+      - 15/month
+      - 150/year
+    features:
+      - Materia Medica library
+      - Workshops and replays
+      - Community support
+  - name: Foundations
+    price: 
+      - 100/month
+      - 1080/year
+    features:
+      - Everything in Herb-Curious
+      - Self-study Courses
+      - Office Hours with Dara
+      - Dedicated Community forums
+  - name: Tarot Residency
+    price: 
+      - 15/month
+      - 50/year
+    features:
+      - Access to the dedicated community forums
+      - Self-study courses on tarot and divination
+      - Open office hours with Dara for tarot and divination questions
+      - Exclusive events and workshops on tarot and divination
+  - name: Apprenticeship
+    price: 
+      - 360/month
+      - 6000/year
+    features:
+      - Access to Everything in Foundations
+      - Live Wisdom Studies with Dara
+      - Priority support
+      - Exclusive events
+  - name: Professional Pods
+    price: 
+      - 10/month
+      - 120/year
+    features:
+      - Full Access
+      - Small group study pods
+      - May host their own classes and events
+      - For professionals in the field of herbalism, medicine, or related fields
+
+services:
+  - name: Herbal Consultations
+    price: 250/session
+    description: One-on-one consultations for personalized herbal guidance and support.
+  - name: Tarot Roots Readings
+    price: 200/reading
+    description: A foundational birth-based tarot reading that reveals your core energetic blueprint and guiding influences.
+  - name: Tarot Readings
+    price: 150/reading
+    description: Personalized tarot readings to gain insight and guidance on various aspects of life.
+  - name: Custom Workshops
+    price: varies
+    description: Tailored workshops to explore specific topics in-depth and foster group learning.
