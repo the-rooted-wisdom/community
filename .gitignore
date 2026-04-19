@@ -1,0 +1,20 @@
+# Node
+node_modules/
+
+# 11ty build output
+_site/
+
+# Obsidian vault — ignore everything except /publish/
+RootedWisdom/*
+!RootedWisdom/publish/
+!RootedWisdom/publish/**
+
+# Obsidian app settings (if vault config is at root level)
+.obsidian/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# SCSS source maps (optional)
+*.css.map
