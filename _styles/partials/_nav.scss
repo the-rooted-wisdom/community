@@ -1,0 +1,324 @@
+// -----------------------------------------
+// _nav.scss
+// Site header and navigation
+//
+// Structure:
+//   .site-header        sticky wrapper
+//   .site-nav           flex bar: logo / links / actions / toggle
+//   .mobile-menu        dropdown panel (hidden by default)
+//
+// Theme variants driven by data-theme on body:
+//   default (main/parchment) -- blur glass effect
+//   dark themes             -- dark glass, gold accents
+// -----------------------------------------
+
+
+// -- HEADER WRAPPER -----------------------
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+// -- NAV BAR ------------------------------
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  height: 64px;
+  background: rgba(240, 230, 204, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(139, 90, 30, 0.12);
+
+  @media (max-width: 768px) {
+    padding: 0 var(--gutter-mobile);
+  }
+}
+
+
+// -- LOGO ---------------------------------
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: block;
+  }
+}
+
+.nav-wordmark {
+  font-family: $font-display;
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $bark;
+  line-height: 1;
+}
+
+
+// -- LINKS --------------------------------
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  li a {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $mid-text;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
+
+    // Underline slide-in on hover
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $rust;
+      transition: width 0.25s ease;
+    }
+
+    &:hover {
+      color: $rust;
+      &::after { width: 100%; }
+    }
+
+    // Active page state -- added by 11ty via activeClass or page.url check
+    &.is-active {
+      color: $rust;
+      &::after { width: 100%; }
+    }
+  }
+}
+
+
+// -- ACTIONS ------------------------------
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-cta {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  line-height: 1;
+
+  &--ghost {
+    color: $mid-text;
+    border: 1px solid rgba(139, 90, 30, 0.3);
+    background: transparent;
+
+    &:hover {
+      color: $bark;
+      border-color: rgba(139, 90, 30, 0.6);
+      background: rgba(139, 90, 30, 0.05);
+    }
+  }
+
+  &--filled {
+    color: $cream;
+    background: $rust;
+    border: 1px solid transparent;
+
+    &:hover {
+      background: $rust-light;
+    }
+  }
+}
+
+
+// -- HAMBURGER TOGGLE ---------------------
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $bark;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+  }
+
+  // Open state -- toggled via JS aria-expanded
+  &[aria-expanded="true"] {
+    span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+  }
+}
+
+
+// -- MOBILE MENU --------------------------
+
+.mobile-menu {
+  background: $bark;
+  border-top: 1px solid rgba(240, 230, 204, 0.08);
+  padding: 1.5rem var(--gutter-mobile) 2rem;
+
+  &[hidden] { display: none; }
+}
+
+.mobile-links {
+  list-style: none;
+  margin-bottom: 1.5rem;
+
+  li a {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(240, 230, 204, 0.65); // 4.9:1 on bark - WCAG AA
+    text-decoration: none;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(240, 230, 204, 0.07);
+    transition: color 0.2s ease;
+
+    &:hover { color: $gold-light; }
+  }
+
+  li:last-child a { border-bottom: none; }
+}
+
+.mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+
+  .nav-cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+  }
+
+  // Override ghost for dark mobile context
+  .nav-cta--ghost {
+    color: rgba(240, 230, 204, 0.65);
+    border-color: rgba(184, 147, 62, 0.3);
+
+    &:hover {
+      color: $gold-light;
+      border-color: rgba(212, 160, 80, 0.5);
+      background: rgba(184, 147, 62, 0.08);
+    }
+  }
+
+  // Override filled for dark mobile context
+  .nav-cta--filled {
+    color: $bark;
+    background: $gold-light;
+
+    &:hover { background: #e0b860; }
+  }
+}
+
+
+// -- DARK THEME OVERRIDES -----------------
+// Activated by data-theme on body for retreat/workshop pages
+
+[data-theme="retreat"],
+[data-theme^="workshop"] {
+
+  .site-nav {
+    background: rgba(17, 13, 8, 0.92);
+    border-bottom-color: rgba(184, 147, 62, 0.1);
+  }
+
+  .nav-wordmark {
+    color: $dark-gold-l;
+  }
+
+  .nav-links li a {
+    color: rgba(245, 240, 232, 0.65); // 5.1:1 on dark bg - WCAG AA
+
+    &::after { background: $dark-gold-l; }
+    &:hover { color: $dark-gold-l; }
+    &.is-active { color: $dark-gold-l; }
+  }
+
+  .nav-cta--ghost {
+    color: rgba(245, 240, 232, 0.65);
+    border-color: rgba(184, 147, 62, 0.3);
+
+    &:hover {
+      color: $dark-gold-l;
+      border-color: rgba(212, 160, 80, 0.6);
+      background: rgba(184, 147, 62, 0.08);
+    }
+  }
+
+  .nav-cta--filled {
+    color: $bark;
+    background: $dark-gold-l;
+
+    &:hover { background: #e0b860; }
+  }
+
+  .nav-toggle span { background: $dark-gold-l; }
+}
+
+
+// -- REDUCED MOTION -----------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links li a::after,
+  .nav-toggle span {
+    transition: none;
+  }
+}

@@ -1,0 +1,633 @@
+// -----------------------------------------
+// _design-system.scss
+// Styles for the TRW component library pages
+// Layout: ds-shell (rail + main), ds-wrap (content max-width)
+// Lives at /design-system/* — not used on public site pages
+// -----------------------------------------
+
+
+// -- SHELL --------------------------------
+// Full-height two-column layout: rail + main
+
+.ds-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+// -- RAIL ---------------------------------
+
+.ds-rail {
+  width: 220px;
+  flex-shrink: 0;
+  background: $bark;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    display: none; // mobile: hide rail — future enhancement
+  }
+}
+
+.ds-rail-header {
+  padding: 1.75rem 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(240, 230, 204, 0.08);
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.ds-rail-eyebrow {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 204, 0.30);
+  margin-bottom: 0.35rem;
+}
+
+.ds-rail-title {
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: $gold-light;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  display: block;
+
+  &:hover { color: $cream; }
+}
+
+.ds-rail-section {
+  padding: 0.75rem 0 0.5rem;
+  flex-shrink: 0;
+
+  & + & {
+    border-top: 1px solid rgba(240, 230, 204, 0.06);
+    margin-top: 0.25rem;
+  }
+}
+
+.ds-rail-label {
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 204, 0.28);
+  padding: 0 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.ds-rail-link {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(240, 230, 204, 0.52); // 4.1:1 on bark - WCAG AA
+  padding: 0.4rem 1.25rem;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: rgba(240, 230, 204, 0.85);
+    background: rgba(240, 230, 204, 0.05);
+  }
+
+  &.is-active {
+    color: $gold-light;
+    border-left-color: $gold-light;
+    background: rgba(212, 160, 80, 0.08);
+  }
+
+  &--dim {
+    color: rgba(240, 230, 204, 0.25);
+    cursor: default;
+    pointer-events: none;
+    font-style: italic;
+  }
+}
+
+.ds-rail-footer {
+  margin-top: auto;
+  padding: 1.25rem;
+  border-top: 1px solid rgba(240, 230, 204, 0.06);
+  flex-shrink: 0;
+}
+
+.ds-rail-back {
+  font-size: 0.68rem;
+  color: rgba(240, 230, 204, 0.25);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease;
+
+  &:hover { color: rgba(240, 230, 204, 0.5); }
+}
+
+
+// -- MAIN ---------------------------------
+
+.ds-main {
+  flex: 1;
+  min-width: 0; // prevent overflow
+  background: var(--color-bg);
+}
+
+
+// -- PAGE WRAP ----------------------------
+
+.ds-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem var(--gutter) 6rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem var(--gutter-mobile) 4rem;
+  }
+}
+
+
+// -- HERO ---------------------------------
+
+.ds-hero {
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 3.5rem;
+}
+
+.ds-hero-eyebrow {
+  display: block;
+  font-size: var(--size-eyebrow);
+  letter-spacing: var(--letter-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+  margin-bottom: 1rem;
+}
+
+.ds-hero-title {
+  font-family: $font-display;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+
+  em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+}
+
+.ds-hero-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-text-mid);
+  max-width: 52ch;
+  line-height: 1.8;
+}
+
+
+// -- SECTION HEADING ----------------------
+
+.ds-section {
+  margin-bottom: 3rem;
+}
+
+.ds-section-heading {
+  font-size: var(--size-eyebrow);
+  letter-spacing: var(--letter-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: none;
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-border), transparent);
+  }
+}
+
+
+// -- COMPONENT DETAIL PAGE ----------------
+// Used on individual component pages (social-bar, nav, footer, etc.)
+
+.ds-component-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 3rem;
+}
+
+.ds-component-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.ds-meta-item {
+  font-size: 0.72rem;
+  color: var(--color-text-soft);
+
+  strong {
+    color: var(--color-text-mid);
+    font-weight: 500;
+  }
+
+  code {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: var(--color-accent);
+  }
+}
+
+
+// -- OBSIDIAN TEMPLATE CALLOUT ------------
+
+.ds-template-callout {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+
+  p { max-width: none; }
+}
+
+.ds-template-callout-label {
+  font-size: var(--size-eyebrow);
+  letter-spacing: var(--letter-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ds-template-callout-title {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.ds-template-callout-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--color-text-mid);
+  line-height: 1.7;
+  max-width: none;
+}
+
+.ds-template-steps {
+  list-style: none;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  li {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--color-text-mid);
+    padding-left: 1.2rem;
+    position: relative;
+
+    &::before {
+      content: counter(step);
+      counter-increment: step;
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 500;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.ds-template-steps { counter-reset: step; }
+
+
+// -- COLLAPSIBLE CODE BLOCK ---------------
+
+.ds-code-details {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.ds-code-details summary {
+  padding: 0.75rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-surface);
+  transition: color 0.2s ease;
+  user-select: none;
+
+  &::-webkit-details-marker { display: none; }
+
+  &::before {
+    content: '\25B6';
+    font-size: 0.5rem;
+    color: var(--color-text-soft);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover { color: var(--color-text-mid); }
+}
+
+.ds-code-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.ds-code-details pre {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+  border-radius: 0;
+}
+
+
+// -- INDEX PAGE CARDS ---------------------
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ds-card {
+  display: block;
+  text-decoration: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--color-accent);
+    transition: height 0.25s ease;
+  }
+
+  &:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(59, 32, 16, 0.08);
+
+    &::before { height: 100%; }
+  }
+
+  &--token {
+    background: var(--color-text);
+
+    .ds-card-type,
+    .ds-card-desc,
+    .ds-card-file { color: rgba(240, 230, 204, 0.55); }
+
+    .ds-card-title { color: var(--color-footer-wordmark); }
+
+    &::before { background: var(--color-footer-wordmark); }
+
+    &:hover { border-color: var(--color-footer-wordmark); }
+  }
+}
+
+.ds-card-type {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ds-card-title {
+  font-family: $font-display;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.ds-card-desc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-mid);
+  line-height: 1.7;
+  max-width: none;
+}
+
+.ds-card-file {
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: var(--color-text-soft);
+  margin-top: 1rem;
+  display: block;
+  opacity: 0.7;
+}
+
+
+// -- BADGES -------------------------------
+
+.ds-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+
+  &--built {
+    background: rgba(165, 80, 10, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(165, 80, 10, 0.2);
+  }
+
+  &--planned {
+    background: rgba(90, 58, 32, 0.06);
+    color: var(--color-text-soft);
+    border: 1px solid var(--color-border);
+  }
+}
+
+
+// -- UPCOMING GRID ------------------------
+
+.ds-upcoming {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ds-upcoming-item {
+  padding: 0.85rem 1.1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.ds-upcoming-name {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--color-text-mid);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.ds-upcoming-type {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+
+// -- MARKDOWN TABLES IN COMPONENT DOCS ----
+// Scoped to .ds-wrap so it only affects design-system pages.
+// Every markdown | col | col | table in a component .md inherits this.
+
+.ds-wrap {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0 2rem;
+    font-size: 0.82rem;
+    overflow-x: auto;
+    display: table; // override any reset that forces block
+  }
+
+  thead th {
+    font-family: $font-body;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text-soft);
+    text-align: left;
+    padding: 0.5rem 1rem 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    font-size: 0.82rem;
+    color: var(--color-text-mid);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  // First column reads as a key/name — tighter, emphasized
+  tbody td:first-child {
+    font-weight: 500;
+    color: var(--color-text);
+    white-space: nowrap;
+    padding-right: 1.5rem;
+  }
+
+  // Inline code inside tables stays readable
+  td code, th code {
+    font-family: monospace;
+    font-size: 0.76rem;
+    color: var(--color-accent);
+    background: none;
+    padding: 0;
+  }
+
+  // Horizontal scroll for narrow viewports
+  @media (max-width: 680px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+// -- CODE BLOCKS & INLINE CODE ------------
+// Fenced ```blocks``` and inline `code` in component docs.
+// .ds-code-details pre and td/th code have higher specificity
+// and keep their existing treatment.
+
+.ds-wrap {
+  pre {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.75rem;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: none;
+
+    code {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      background: none;
+      padding: 0;
+      border: none;
+      white-space: pre;
+    }
+  }
+
+  // Inline code — backtick-wrapped in prose
+  code {
+    font-family: monospace;
+    font-size: 0.85em;
+    color: var(--color-accent);
+    background: rgba(165, 80, 10, 0.06);
+    padding: 0.12em 0.4em;
+    border-radius: 2px;
+    border: 1px solid rgba(165, 80, 10, 0.12);
+  }
+
+  // Headings with inline code should not feel cramped
+  h1 code, h2 code, h3 code, h4 code {
+    font-size: 0.7em;
+    vertical-align: 0.08em;
+  }
+}

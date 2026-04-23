@@ -1,0 +1,30 @@
+// ─────────────────────────────────────────
+// styles.scss
+// Entry point — ordered: tokens → reset → base → type → components
+// ─────────────────────────────────────────
+
+// 1. Tokens & themes
+@import 'partials/variables';
+@import 'partials/themes';
+
+// 2. Reset
+@import 'partials/reset';
+
+// 3. Base
+@import 'partials/base';
+
+// 4. Typography
+@import 'partials/typography';
+@import 'partials/prose';
+
+// 5. Buttons
+@import 'partials/buttons';
+
+// 6. Components (uncomment as built)
+@import 'partials/social-bar';
+@import 'partials/nav';
+@import 'partials/footer';
+@import 'partials/design-system';
+@import 'partials/foundation-library';
+@import 'partials/hero';
+// @import 'partials/cards';

@@ -1,0 +1,220 @@
+// -----------------------------------------
+// _footer.scss
+// Site footer -- bark background, 4-column grid
+//
+// Structure:
+//   .site-footer
+//     .footer-inner          4-col grid: brand / learn / explore / work-together
+//       .footer-brand        logo, wordmark, tagline, social bar, email
+//       .footer-col          nav column (x3)
+//     .footer-divider        gradient rule
+//     .footer-base           copyright + legal links
+//
+// All colors via semantic tokens -- see _themes.scss for values per theme.
+// -----------------------------------------
+
+
+// -- WRAPPER ------------------------------
+
+.site-footer {
+  background: var(--color-footer-bg);
+}
+
+
+// -- INNER GRID ---------------------------
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem var(--gutter) 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    padding: 3rem var(--gutter-mobile) 2rem;
+    gap: 2rem;
+  }
+}
+
+
+// -- BRAND COLUMN -------------------------
+
+.footer-brand {
+  @media (max-width: 900px) {
+    grid-column: 1 / -1;
+  }
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: block;
+  }
+}
+
+.footer-wordmark {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-footer-wordmark);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-family: $font-display;
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-footer-text);
+  line-height: 1.65;
+  max-width: none;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  margin-bottom: 1.5rem;
+}
+
+.footer-social-label {
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-footer-label);
+  margin-bottom: 0.6rem;
+}
+
+.footer-email {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--color-footer-text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-footer-hover);
+  }
+}
+
+
+// -- NAV COLUMNS --------------------------
+
+.footer-col-heading {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-footer-label);
+  margin-bottom: 1.1rem;
+  max-width: none;
+}
+
+.footer-col {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  li a {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--color-footer-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-footer-hover);
+    }
+  }
+}
+
+
+// -- DIVIDER ------------------------------
+
+.footer-divider {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(240, 230, 204, 0.08) 20%,
+    rgba(240, 230, 204, 0.08) 80%,
+    transparent
+  );
+}
+
+
+// -- BASE BAR -----------------------------
+
+.footer-base {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem var(--gutter-mobile);
+    gap: 0.75rem;
+  }
+}
+
+.footer-copy {
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--color-footer-label);
+  letter-spacing: 0.05em;
+  max-width: none;
+}
+
+.footer-legal {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  li a {
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--color-footer-text);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-footer-hover);
+    }
+  }
+
+  // Dot separator between items
+  li + li::before {
+    content: '\00b7';
+    margin: 0 1rem;
+    color: var(--color-footer-label);
+    opacity: 0.5;
+  }
+}

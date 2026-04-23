@@ -1,0 +1,198 @@
+// ─────────────────────────────────────────
+// _typography.scss
+// ─────────────────────────────────────────
+
+
+// ── HEADINGS ─────────────────────────────
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+h4 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+// ── BODY COPY ────────────────────────────
+
+p {
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-mid);
+  max-width: var(--p-max-width);
+}
+
+p.wide,
+.wide p {
+  max-width: none;
+}
+
+strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+
+// ── LINKS ────────────────────────────────
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+}
+
+p a,
+li a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+// ── EYEBROW LABELS ───────────────────────
+
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: var(--size-eyebrow);
+  font-weight: 400;
+  letter-spacing: var(--letter-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+  margin-bottom: 0.75rem;
+}
+
+
+// ── ORNAMENT ─────────────────────────────
+
+.ornament {
+  display: block;
+  text-align: center;
+  color: var(--color-ornament);
+  font-size: 0.55rem;
+  letter-spacing: 0.6em;
+  margin-block: 2rem;
+  opacity: 0.65;
+
+  &::before {
+    content: '◆ ◆ ◆';
+  }
+}
+
+.ornament--single::before {
+  content: '◆';
+}
+
+
+// ── LISTS ────────────────────────────────
+
+.prose ul,
+article ul {
+  list-style: none;
+  padding-left: 1.2rem;
+
+  li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-text-mid);
+    font-weight: 300;
+
+    &::before {
+      content: '◆';
+      position: absolute;
+      left: -0.2rem;
+      top: 0.15em;
+      font-size: 0.4rem;
+      color: var(--color-ornament);
+      opacity: 0.7;
+    }
+  }
+}
+
+.prose ol,
+article ol {
+  padding-left: 1.5rem;
+
+  li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-text-mid);
+    font-weight: 300;
+
+    &::marker {
+      font-family: $font-display;
+      color: var(--color-ornament);
+      font-size: 0.85rem;
+    }
+  }
+}
+
+
+// ── BLOCKQUOTE ───────────────────────────
+
+blockquote {
+  font-family: $font-display;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text);
+  border-left: 2px solid var(--color-ornament);
+  padding-left: 1.75rem;
+  margin-block: 2.5rem;
+  max-width: 44rem;
+}
+
+blockquote cite {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-top: 0.75rem;
+}
+
+
+// ── CAPTIONS ─────────────────────────────
+
+.caption,
+figcaption {
+  font-family: $font-body;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text-soft);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+
+// ── UTILITIES ────────────────────────────
+
+.text-display  { font-family: $font-display; font-weight: 400; }
+.text-italic   { font-style: italic; }
+.text-soft     { color: var(--color-text-soft); }
+.text-accent   { color: var(--color-accent); }
+.text-center   { text-align: center; }
+.text-left     { text-align: left; }
+.text-right    { text-align: right; }

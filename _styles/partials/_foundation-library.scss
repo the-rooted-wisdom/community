@@ -1,0 +1,645 @@
+// ─────────────────────────────────────────
+// _foundation-library.scss
+// Styles for /design-system/foundation/ chapter pages
+// All classes prefixed .fdn- to avoid global collisions
+// ─────────────────────────────────────────
+
+
+// ── CHAPTER HEADER (on each sub-page) ────
+.fdn-chapter-eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+  margin-bottom: 0.75rem;
+  max-width: none;
+}
+
+.fdn-chapter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+
+  em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+}
+
+.fdn-chapter-lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.fdn-chapter-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem;
+
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  }
+
+  span {
+    font-size: 0.58rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-text-soft);
+  }
+}
+
+
+// ── OVERVIEW (foundation/index) ──────────
+.fdn-hero {
+  margin-bottom: 3.5rem;
+}
+
+.fdn-chapters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 3rem;
+}
+
+.fdn-chapter-card {
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1.75rem 1.75rem 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--color-accent);
+    opacity: 0.35;
+    transition: opacity 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(181, 96, 26, 0.3);
+    box-shadow: 0 4px 16px rgba(59, 32, 16, 0.08);
+
+    &::before { opacity: 1; }
+  }
+}
+
+.fdn-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  max-width: none;
+}
+
+.fdn-card-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 0.5rem;
+  max-width: none;
+}
+
+.fdn-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  max-width: none;
+}
+
+.fdn-card-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  max-width: none;
+}
+
+
+// ── SEMANTIC TOKEN TABLE (tokens page) ───
+.fdn-tt-wrap {
+  overflow-x: auto;
+  margin: 1.5rem -0.5rem 2rem;
+  padding: 0 0.5rem;
+}
+
+.fdn-tt {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text-soft);
+    text-align: left;
+    padding: 0.5rem 0.8rem 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+
+    &.fdn-tt-theme-head { text-align: center; }
+    &.fdn-tt-token-head { width: 210px; }
+    &.fdn-tt-role-head  { padding-left: 1.2rem; }
+  }
+
+  td {
+    padding: 0.5rem 0.8rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  tr:last-child td { border-bottom: none; }
+}
+
+.fdn-tt-section td {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(59, 32, 16, 0.12) !important;
+  padding: 1.6rem 0.2rem 0.6rem !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  color: var(--color-text) !important;
+  letter-spacing: 0.04em !important;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--color-ornament);
+    transform: rotate(45deg);
+    margin-right: 0.7rem;
+    vertical-align: middle;
+    opacity: 0.75;
+  }
+}
+
+.fdn-tt-section:first-child td { padding-top: 0.3rem !important; }
+
+.fdn-tt-name {
+  font-family: monospace;
+  font-size: 0.76rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.fdn-tt-role {
+  font-size: 0.78rem;
+  color: var(--color-text-mid);
+  font-family: 'Jost', sans-serif;
+  line-height: 1.5;
+  padding-left: 1.2rem !important;
+  max-width: none;
+}
+
+.fdn-tt-sw {
+  padding: 0.4rem 0.45rem !important;
+  width: 150px;
+}
+
+.fdn-tt-color {
+  height: 44px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(59, 32, 16, 0.06);
+
+  span {
+    font-family: monospace;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  &.fdn-on-light span { color: #3b2010; }
+
+  &.fdn-on-dark {
+    border-color: rgba(255, 255, 255, 0.1);
+    span { color: #f5f0e8; }
+  }
+}
+
+.fdn-tt-rgba {
+  height: 44px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  .fdn-tt-rgba-fill {
+    position: absolute;
+    inset: 0;
+  }
+
+  span {
+    position: relative;
+    font-family: monospace;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    z-index: 1;
+    padding: 0 0.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .fdn-tt { min-width: 820px; }
+}
+
+
+// ── RAW PALETTE (palette page) ───────────
+.fdn-palette-group { margin-bottom: 2.5rem; }
+
+.fdn-palette-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  max-width: none;
+}
+
+.fdn-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.fdn-sw {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fdn-sw-box {
+  height: 52px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(59, 32, 16, 0.06);
+}
+
+.fdn-sw-var {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  max-width: none;
+}
+
+.fdn-sw-hex {
+  font-family: monospace;
+  font-size: 0.64rem;
+  color: var(--color-text-soft);
+  max-width: none;
+}
+
+.fdn-sw-use {
+  font-size: 0.7rem;
+  color: var(--color-text-mid);
+  line-height: 1.45;
+  max-width: none;
+}
+
+
+// ── STRUCTURE TOKENS (structure page) ────
+.fdn-struct {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.fdn-struct-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 1rem 1.2rem;
+}
+
+.fdn-struct-token {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  margin-bottom: 4px;
+  max-width: none;
+}
+
+.fdn-struct-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 2px;
+  max-width: none;
+}
+
+.fdn-struct-desc {
+  font-size: 0.7rem;
+  color: var(--color-text-soft);
+  line-height: 1.5;
+  max-width: none;
+}
+
+
+// ── TYPOGRAPHY (typography page) ─────────
+.fdn-type-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 1.75rem 2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.fdn-type-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+
+  &:first-child { padding-top: 0; }
+  &:last-child  { border-bottom: none; padding-bottom: 0; }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.fdn-type-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  max-width: none;
+}
+
+.fdn-type-spec {
+  font-family: monospace;
+  font-size: 0.64rem;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  margin-top: 0.35rem;
+  max-width: none;
+}
+
+.fdn-type-sample {
+  color: var(--color-text);
+  max-width: none;
+}
+
+
+// ── THEME ZONES (themes page) ────────────
+.fdn-theme-card {
+  border-radius: 3px;
+  padding: 1.5rem 2rem;
+  margin: 1rem 0 2rem;
+  border: 1px solid transparent;
+}
+
+.fdn-theme-card--light {
+  border-color: rgba(59, 32, 16, 0.12);
+}
+
+.fdn-workshop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.fdn-workshop-card {
+  border-radius: 3px;
+  padding: 1.25rem 1.5rem;
+
+  &--light { border: 1px solid rgba(59, 32, 16, 0.12); }
+}
+
+
+// ── ORNAMENT (motifs page) ───────────────
+.fdn-ornament-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1.5rem 0 2rem;
+
+  > div {
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.fdn-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.fdn-ornament-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+}
+
+.fdn-ornament-diamond {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+
+// ── MOTIF CATEGORIES (motifs page) ───────
+.fdn-motif-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.fdn-motif-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fdn-motif-preview {
+  background: var(--color-bg);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 130px;
+
+  svg {
+    max-width: 100%;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+  }
+}
+
+.fdn-motif-info { padding: 1rem 1.2rem; }
+
+.fdn-motif-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.3rem;
+  max-width: none;
+}
+
+.fdn-motif-use {
+  font-size: 0.72rem;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+  max-width: none;
+}
+
+.fdn-motif-file {
+  font-size: 0.62rem;
+  color: var(--color-text-soft);
+  font-family: monospace;
+  max-width: none;
+}
+
+
+// ── WATERCOLOR POOLS (pools page) ────────
+.fdn-pool-demo {
+  position: relative;
+  height: 260px;
+  background: var(--color-surface);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  margin: 1.5rem 0 1rem;
+}
+
+.fdn-pool {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.fdn-pool-caption {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--color-text);
+  text-align: center;
+  padding-top: 6rem;
+  max-width: none;
+}
+
+.fdn-pool-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+
+  th {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text-soft);
+    text-align: left;
+    padding: 0.5rem 1rem 0.9rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  td {
+    font-size: 0.82rem;
+    color: var(--color-text-mid);
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  td:first-child {
+    font-weight: 500;
+    color: var(--color-text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+  }
+}
+
+.fdn-pool-chip {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+// ── SPEC CALLOUT (reusable) ──────────────
+.fdn-spec {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--color-text-soft);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.9rem 1.2rem;
+  margin: 1rem 0 2rem;
+  line-height: 1.7;
+
+  em {
+    color: var(--color-accent);
+    font-style: normal;
+  }
+}

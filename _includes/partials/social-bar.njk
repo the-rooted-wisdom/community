@@ -1,0 +1,46 @@
+{#
+  social-bar.njk
+  ─────────────────────────────────────────────────────────
+  Reusable social icon bar. Loops through _data/social.yaml.
+
+  Parameters (set via Nunjucks `set` before include, or pass defaults):
+    socialVariant   "icons"    — icon buttons only (default)
+                    "labeled"  — icon + handle text
+
+    socialTheme     "dark"     — for bark/footer backgrounds (default)
+                    "light"    — for parchment/page backgrounds
+
+  Usage — icons only (footer default):
+    {% include "partials/social-bar.njk" %}
+
+  Usage — labeled, light:
+    {% set socialVariant = "labeled" %}
+    {% set socialTheme = "light" %}
+    {% include "partials/social-bar.njk" %}
+    {% set socialVariant = "icons" %}
+    {% set socialTheme = "dark" %}
+
+  Font Awesome Kit required in <head>:
+    <script src="https://kit.fontawesome.com/bae67cbe22.js" crossorigin="anonymous"></script>
+#}
+
+{% set _variant = socialVariant if socialVariant else "icons" %}
+{% set _theme   = socialTheme   if socialTheme   else "dark" %}
+
+<nav
+  class="social-bar social-bar--{{ _theme }}{% if _variant == 'labeled' %} social-bar--labeled{% endif %}"
+  aria-label="Follow The Rooted Wisdom on social media"
+>
+  {% for platform in social.social %}
+    <a
+      href="{{ platform.url }}"
+      class="social-link{% if _variant == 'labeled' %} social-link--labeled{% endif %}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="{{ platform.name }}{% if _variant == 'labeled' %} {{ platform.handle }}{% endif %}"
+    >
+      <i class="{% if platform.custom %}fa-kit fa-{{ platform.icon }}{% else %}fa-brands fa-{{ platform.icon }}{% endif %}"></i>
+      {%- if _variant == "labeled" %}<span class="social-handle">{{ platform.handle }}</span>{% endif %}
+    </a>
+  {% endfor %}
+</nav>

@@ -1,0 +1,85 @@
+// ─────────────────────────────────────────
+// _prose.scss
+// Document-style typographic rhythm.
+// Applied via .prose class — used on content pages
+// (code of conduct, privacy policy, etc.)
+// ─────────────────────────────────────────
+
+.prose {
+  padding-block: 4rem 6rem;
+
+  // ── HEADING SCALE ──────────────────────
+  // Scaled down from hero/section sizes — these
+  // are document headings, not display titles.
+
+  h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-top: 2rem;
+    margin-bottom: 0.35rem;
+    color: var(--color-text);
+  }
+
+  h4, h5, h6 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+
+  // ── BODY COPY ──────────────────────────
+
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  // First paragraph after a heading sits closer
+  h1 + p,
+  h2 + p,
+  h3 + p {
+    margin-top: 0.5rem;
+  }
+
+  // ── HORIZONTAL RULE ────────────────────
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin-block: 2.5rem;
+    opacity: 0.5;
+  }
+
+  // ── LISTS ──────────────────────────────
+  // Spacing between items — inherits bullet
+  // styles from _typography.scss .prose ul/ol
+
+  ul, ol {
+    margin-bottom: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  // ── PAGE TITLE ─────────────────────────
+  // Opening h1 gets a ruled underline and
+  // extra breathing room before body begins.
+
+  > h1:first-child {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+}

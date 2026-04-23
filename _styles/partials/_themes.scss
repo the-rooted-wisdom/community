@@ -1,0 +1,218 @@
+// ─────────────────────────────────────────
+// _themes.scss
+// CSS custom properties per data-theme value
+// One component system, values swap per theme
+// ─────────────────────────────────────────
+
+
+// ── STRUCTURE TOKENS — emitted once ──────
+:root {
+  --space-section:    #{$space-section};
+  --max-width:        #{$max-width};
+  --gutter:           #{$gutter};
+  --gutter-mobile:    #{$gutter-mobile};
+  --radius-card:      #{$radius-card};
+  --p-max-width:      #{$p-max-width};
+  --letter-eyebrow:   #{$letter-eyebrow};
+  --letter-button:    #{$letter-button};
+  --size-eyebrow:     #{$size-eyebrow};
+}
+
+
+// ── MAIN THEME (default) ─────────────────
+[data-theme="main"],
+body:not([data-theme]) {
+  --color-bg:           #{$parchment};
+  --color-surface:      #{$parchment2};
+  --color-text:         #{$bark};
+  --color-text-mid:     #{$mid-text};
+  --color-text-soft:    #{$soft-text};
+  --color-accent:       #{$rust};
+  --color-accent-hover: #{$rust-light};
+  --color-eyebrow:      #{$blue-wc3};
+  --color-ornament:     #{$gold};
+  --color-border:       rgba(59, 32, 16, 0.12);
+  --color-footer-bg:       #{$bark};
+  --color-footer-text:     rgba(240, 230, 204, 0.54); // 4.56:1 - WCAG AA
+  --color-footer-label:    rgba(240, 230, 204, 0.40); // 3.14:1 - WCAG AA (UI)
+  --color-footer-hover:    #{$gold-light};
+  --color-footer-wordmark: #{$gold-light};
+  --color-nav-bg:          #{$bark};
+  --color-nav-text:        rgba(240, 230, 204, 0.55);
+  --color-nav-active:      #{$gold-light};
+}
+
+
+// ── ZINE THEME ───────────────────────────
+[data-theme="zine"] {
+  --color-bg:           #{$zine-ink};
+  --color-surface:      #{$zine-surface};
+  --color-text:         #{$zine-lavender};
+  --color-text-mid:     #{$zine-dust};
+  --color-text-soft:    rgba(200, 190, 221, 0.55);
+  --color-accent:       #{$zine-accent};
+  --color-accent-hover: #{$zine-lavender};
+  --color-eyebrow:      #{$zine-dust};
+  --color-ornament:     #{$zine-accent};
+  --color-border:       rgba(200, 190, 221, 0.12);
+  --color-footer-bg:       #{$zine-ink};
+  --color-footer-text:     rgba(200, 190, 221, 0.70);
+  --color-footer-label:    rgba(200, 190, 221, 0.40);
+  --color-footer-hover:    #{$zine-lavender};
+  --color-footer-wordmark: #{$zine-lavender};
+  --color-nav-bg:          #{$zine-ink};
+  --color-nav-text:        rgba(200, 190, 221, 0.55);
+  --color-nav-active:      #{$zine-lavender};
+}
+
+
+// ── RETREAT THEME ────────────────────────
+[data-theme="retreat"] {
+  --color-bg:           #{$ink};
+  --color-surface:      #{$ink-mid};
+  --color-text:         #{$cream};
+  --color-text-mid:     rgba(245, 240, 232, 0.75);
+  --color-text-soft:    rgba(245, 240, 232, 0.45);
+  --color-accent:       #{$dark-gold-l};
+  --color-accent-hover: #{$cream};
+  --color-eyebrow:      #{$dark-gold};
+  --color-ornament:     #{$dark-gold};
+  --color-border:       rgba(245, 240, 232, 0.1);
+  --color-footer-bg:       #{$ink};
+  --color-footer-text:     rgba(245, 240, 232, 0.65);
+  --color-footer-label:    rgba(245, 240, 232, 0.38);
+  --color-footer-hover:    #{$dark-gold-l};
+  --color-footer-wordmark: #{$dark-gold-l};
+  --color-nav-bg:          #{$ink};
+  --color-nav-text:        rgba(245, 240, 232, 0.5);
+  --color-nav-active:      #{$dark-gold-l};
+}
+
+
+// ── WORKSHOP THEMES ──────────────────────
+
+[data-theme="workshop-ember"] {
+  --color-bg:           #1a0f08;
+  --color-surface:      #241408;
+  --color-text:         #f0d8b0;
+  --color-text-mid:     rgba(240, 216, 176, 0.75);
+  --color-text-soft:    rgba(240, 216, 176, 0.45);
+  --color-accent:       #e07030;
+  --color-accent-hover: #f09050;
+  --color-eyebrow:      #{$amber-wc};
+  --color-ornament:     #{$amber-wc};
+  --color-border:       rgba(240, 216, 176, 0.1);
+  --color-footer-bg:       #110a04;
+  --color-footer-text:     rgba(240, 216, 176, 0.65);
+  --color-footer-label:    rgba(240, 216, 176, 0.38);
+  --color-footer-hover:    #f09050;
+  --color-footer-wordmark: #f09050;
+  --color-nav-bg:          #110a04;
+  --color-nav-text:        rgba(240, 216, 176, 0.5);
+  --color-nav-active:      #e07030;
+}
+
+[data-theme="workshop-botanica"] {
+  --color-bg:           #0d130c;
+  --color-surface:      #131a10;
+  --color-text:         #d4e0c0;
+  --color-text-mid:     rgba(212, 224, 192, 0.75);
+  --color-text-soft:    rgba(212, 224, 192, 0.45);
+  --color-accent:       #7a9a50;
+  --color-accent-hover: #{$sage-light};
+  --color-eyebrow:      #{$sage};
+  --color-ornament:     #{$sage};
+  --color-border:       rgba(212, 224, 192, 0.1);
+  --color-footer-bg:       #080d07;
+  --color-footer-text:     rgba(212, 224, 192, 0.65);
+  --color-footer-label:    rgba(212, 224, 192, 0.38);
+  --color-footer-hover:    #{$sage-light};
+  --color-footer-wordmark: #{$sage-light};
+  --color-nav-bg:          #080d07;
+  --color-nav-text:        rgba(212, 224, 192, 0.5);
+  --color-nav-active:      #{$sage-light};
+}
+
+[data-theme="workshop-lunar"] {
+  --color-bg:           #08101a;
+  --color-surface:      #0e1824;
+  --color-text:         #c8ddf0;
+  --color-text-mid:     rgba(200, 221, 240, 0.75);
+  --color-text-soft:    rgba(200, 221, 240, 0.45);
+  --color-accent:       #{$blue-wc};
+  --color-accent-hover: #{$blue-wc2};
+  --color-eyebrow:      #{$blue-wc3};
+  --color-ornament:     #{$blue-wc3};
+  --color-border:       rgba(200, 221, 240, 0.1);
+  --color-footer-bg:       #050c14;
+  --color-footer-text:     rgba(200, 221, 240, 0.65);
+  --color-footer-label:    rgba(200, 221, 240, 0.38);
+  --color-footer-hover:    #{$blue-wc2};
+  --color-footer-wordmark: #{$blue-wc2};
+  --color-nav-bg:          #050c14;
+  --color-nav-text:        rgba(200, 221, 240, 0.5);
+  --color-nav-active:      #{$blue-wc2};
+}
+
+[data-theme="workshop-parchment"] {
+  --color-bg:           #{$parchment};
+  --color-surface:      #{$parchment3};
+  --color-text:         #{$bark};
+  --color-text-mid:     #{$mid-text};
+  --color-text-soft:    #{$soft-text};
+  --color-accent:       #{$rust};
+  --color-accent-hover: #{$rust-light};
+  --color-eyebrow:      #{$blue-wc3};
+  --color-ornament:     #{$gold};
+  --color-border:       rgba(59, 32, 16, 0.12);
+  --color-footer-bg:       #{$bark};
+  --color-footer-text:     rgba(240, 230, 204, 0.54);
+  --color-footer-label:    rgba(240, 230, 204, 0.40);
+  --color-footer-hover:    #{$gold-light};
+  --color-footer-wordmark: #{$gold-light};
+  --color-nav-bg:          #{$bark};
+  --color-nav-text:        rgba(240, 230, 204, 0.55);
+  --color-nav-active:      #{$gold-light};
+}
+
+[data-theme="workshop-ceremony"] {
+  --color-bg:           #0e0814;
+  --color-surface:      #160e1e;
+  --color-text:         #e0d0f0;
+  --color-text-mid:     rgba(224, 208, 240, 0.75);
+  --color-text-soft:    rgba(224, 208, 240, 0.45);
+  --color-accent:       #9070c0;
+  --color-accent-hover: #b090e0;
+  --color-eyebrow:      #7a5aaa;
+  --color-ornament:     #7a5aaa;
+  --color-border:       rgba(224, 208, 240, 0.1);
+  --color-footer-bg:       #08040e;
+  --color-footer-text:     rgba(224, 208, 240, 0.65);
+  --color-footer-label:    rgba(224, 208, 240, 0.38);
+  --color-footer-hover:    #b090e0;
+  --color-footer-wordmark: #b090e0;
+  --color-nav-bg:          #08040e;
+  --color-nav-text:        rgba(224, 208, 240, 0.5);
+  --color-nav-active:      #b090e0;
+}
+
+[data-theme="workshop-root"] {
+  --color-bg:           #100a06;
+  --color-surface:      #1a1008;
+  --color-text:         #e8d0b0;
+  --color-text-mid:     rgba(232, 208, 176, 0.75);
+  --color-text-soft:    rgba(232, 208, 176, 0.45);
+  --color-accent:       #{$rust};
+  --color-accent-hover: #{$rust-light};
+  --color-eyebrow:      #{$amber-wc};
+  --color-ornament:     #{$amber-wc};
+  --color-border:       rgba(232, 208, 176, 0.1);
+  --color-footer-bg:       #080503;
+  --color-footer-text:     rgba(232, 208, 176, 0.65);
+  --color-footer-label:    rgba(232, 208, 176, 0.38);
+  --color-footer-hover:    #{$rust-light};
+  --color-footer-wordmark: #{$rust-light};
+  --color-nav-bg:          #080503;
+  --color-nav-text:        rgba(232, 208, 176, 0.5);
+  --color-nav-active:      #{$rust-light};
+}

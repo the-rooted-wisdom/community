@@ -1,0 +1,91 @@
+<header class="site-header">
+  <nav class="site-nav">
+
+    <a href="/" class="nav-logo">
+      <img src="/assets/img/logo.png" alt="The Rooted Wisdom" width="38" height="38" />
+      <span class="nav-wordmark">The Rooted Wisdom</span>
+    </a>
+
+    <ul class="nav-links">
+      {% for link in nav.links %}
+        <li>
+          <a href="{{ link.url }}"
+             {% if page.url == link.url %}class="is-active"{% endif %}>
+            {{ link.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="nav-actions">
+      <a href="/members/" class="nav-cta nav-cta--ghost ms-member-only">My Library</a>
+      <a href="/learn/" class="nav-cta nav-cta--filled ms-guest-only">Join Us</a>
+    </div>
+
+    <button class="nav-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <ul class="mobile-links">
+      {% for link in nav.links %}
+        <li>
+          <a href="{{ link.url }}"
+             {% if page.url == link.url %}class="is-active"{% endif %}>
+            {{ link.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="mobile-actions">
+      <a href="/members/" class="nav-cta nav-cta--ghost ms-member-only">My Library</a>
+      <a href="/learn/" class="nav-cta nav-cta--filled ms-guest-only">Join Us</a>
+    </div>
+  </div>
+
+</header>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu   = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function() {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      if (isOpen) {
+        menu.hidden = true;
+      } else {
+        menu.hidden = false;
+      }
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!menu.hidden && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !menu.hidden) {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        toggle.focus();
+      }
+    });
+  })();
+</script>

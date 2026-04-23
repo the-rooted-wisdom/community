@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} | {{ site.name }}</title>
   <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script src="https://kit.fontawesome.com/bae67cbe22.js" crossorigin="anonymous"></script>
   {% if pageStyles %}
   <style>{{ pageStyles | safe }}</style>
   {% endif %}
 </head>
-<body>
-  
+<body{% if theme %} data-theme="{{ theme }}"{% endif %}>
+  {% include "partials/nav.njk" %}
   <main>
+    {% include "partials/hero.njk" %}
     {{ content | safe }}
   </main>
-
+  {% include "partials/footer.njk" %}
 </body>
 </html>

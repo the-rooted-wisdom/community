@@ -1,0 +1,19 @@
+# Social platform data
+# icon: Font Awesome brand icon name (without fa- prefix)
+# custom: true = uses fa-kit class instead of fa-brands
+# Font Awesome Kit: https://kit.fontawesome.com/bae67cbe22.js
+
+social:
+  - name: TikTok
+    handle: "@mytrinisoul"
+    url: https://www.tiktok.com/@mytrinisoul
+    icon: tiktok
+  - name: Instagram
+    handle: "@therootedwisdomherbal"
+    url: https://www.instagram.com/therootedwisdomherbal
+    icon: instagram
+  - name: Fanbase
+    handle: therootedwisdom
+    url: https://fanbase.com/therootedwisdom
+    icon: fanbase
+    custom: true

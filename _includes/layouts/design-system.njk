@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} — Component Library | {{ site.name }}</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script src="https://kit.fontawesome.com/bae67cbe22.js" crossorigin="anonymous"></script>
+</head>
+<body data-theme="main">
+
+  <div class="ds-shell">
+
+    <!-- LEFT RAIL -->
+    <nav class="ds-rail" aria-label="Component library navigation">
+
+      <div class="ds-rail-header">
+        <span class="ds-rail-eyebrow">The Rooted Wisdom</span>
+        <a href="/design-system/" class="ds-rail-title">Component Library</a>
+      </div>
+
+      <div class="ds-rail-section">
+        <span class="ds-rail-label">Foundation</span>
+        <a href="/design-system/foundation/" class="ds-rail-link{% if page.url == '/design-system/foundation/' %} is-active{% endif %}">Overview</a>
+        <a href="/design-system/foundation/themes/" class="ds-rail-link{% if page.url == '/design-system/foundation/themes/' %} is-active{% endif %}">Themes</a>
+        <a href="/design-system/foundation/palette/" class="ds-rail-link{% if page.url == '/design-system/foundation/palette/' %} is-active{% endif %}">Palette</a>
+        <a href="/design-system/foundation/tokens/" class="ds-rail-link{% if page.url == '/design-system/foundation/tokens/' %} is-active{% endif %}">Semantic Tokens</a>
+        <a href="/design-system/foundation/typography/" class="ds-rail-link{% if page.url == '/design-system/foundation/typography/' %} is-active{% endif %}">Typography</a>
+        <a href="/design-system/foundation/structure/" class="ds-rail-link{% if page.url == '/design-system/foundation/structure/' %} is-active{% endif %}">Structure</a>
+        <a href="/design-system/foundation/motifs/" class="ds-rail-link{% if page.url == '/design-system/foundation/motifs/' %} is-active{% endif %}">Motifs</a>
+        <a href="/design-system/foundation/pools/" class="ds-rail-link{% if page.url == '/design-system/foundation/pools/' %} is-active{% endif %}">Watercolor Pools</a>
+      </div>
+
+      <div class="ds-rail-section">
+        <span class="ds-rail-label">Layout</span>
+        <a href="/design-system/components/hero/" class="ds-rail-link{% if page.url == '/design-system/components/hero/' %} is-active{% endif %}">Hero Banner</a>
+      </div>
+
+      <div class="ds-rail-section">
+        <span class="ds-rail-label">Collections</span>
+        <a href="/design-system/components/social-bar/" class="ds-rail-link{% if page.url == '/design-system/components/social-bar/' %} is-active{% endif %}">Social Bar</a>
+        <a href="/design-system/components/nav/" class="ds-rail-link{% if page.url == '/design-system/components/nav/' %} is-active{% endif %}">Navigation</a>
+        <a href="/design-system/components/footer/" class="ds-rail-link{% if page.url == '/design-system/components/footer/' %} is-active{% endif %}">Footer</a>
+      </div>
+
+      <div class="ds-rail-section">
+        <span class="ds-rail-label">Elements</span>
+        <a href="/design-system/components/buttons/" class="ds-rail-link{% if page.url == '/design-system/components/buttons/' %} is-active{% endif %}">Buttons</a>
+        <a href="/design-system/components/tags/" class="ds-rail-link{% if page.url == '/design-system/components/tags/' %} is-active{% endif %}">Tags</a>
+      </div>
+
+      <div class="ds-rail-section ds-rail-section--planned">
+        <span class="ds-rail-label">Coming soon</span>
+        <span class="ds-rail-link ds-rail-link--dim">Section Wrap</span>
+        <span class="ds-rail-link ds-rail-link--dim">Card Grid</span>
+        <span class="ds-rail-link ds-rail-link--dim">Feature Row</span>
+        <span class="ds-rail-link ds-rail-link--dim">Pull Quote</span>
+        <span class="ds-rail-link ds-rail-link--dim">Event Card</span>
+        <span class="ds-rail-link ds-rail-link--dim">Membership Tier</span>
+      </div>
+
+      <div class="ds-rail-footer">
+        <a href="/" class="ds-rail-back">&larr; Back to site</a>
+      </div>
+
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="ds-main">
+      <div class="ds-wrap">
+        {{ content | safe }}
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

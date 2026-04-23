@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass:watch": "sass --watch sass/styles.scss:assets/css/styles.css --style=compressed",
-    "sass:build": "sass sass/styles.scss assets/css/styles.css --style=compressed",
+    "sass:watch": "sass --watch _styles/styles.scss:_site/assets/css/styles.css --style=expanded --silence-deprecation=import",
+    "sass:build": "sass _styles/styles.scss:assets/css/styles.css --style=compressed --silence-deprecation=import",
     "eleventy:serve": "eleventy --serve",
     "eleventy:build": "eleventy",
     "start": "npm-run-all --parallel sass:watch eleventy:serve",

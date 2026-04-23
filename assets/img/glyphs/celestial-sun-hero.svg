@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+  <!-- celestial-sun-hero — sun with 8 rays. Uses currentColor so it tints per theme. -->
+  <circle cx="50" cy="50" r="14" stroke="currentColor" stroke-width="1.4" fill="none"/>
+  <line x1="50" y1="20" x2="50" y2="30" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="50" y1="70" x2="50" y2="80" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="20" y1="50" x2="30" y2="50" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="70" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="29" y1="29" x2="36" y2="36" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="64" y1="64" x2="71" y2="71" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="71" y1="29" x2="64" y2="36" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="36" y1="64" x2="29" y2="71" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+</svg>
